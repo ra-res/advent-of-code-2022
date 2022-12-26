@@ -3,7 +3,7 @@ import scala.io.Source
 @main def main() = {
   // val lines = Source.fromFile("small.txt").getLines.toList.map(_.toList.map(_.asDigit))
   val lines = Source.fromFile("input.txt").getLines.toList.map(_.toList.map(_.asDigit))
-  var trees = ( lines.length + lines(0).length - 2)  * 2
+  var trees = (lines.length + lines(0).length - 2)  * 2
 
   def neighbours(i: Int, j: Int): List[List[Int]] = {
     val up = (0 until i).map(x => lines(x)(j)).toList.reverse
@@ -27,11 +27,11 @@ import scala.io.Source
        }
 
       scenicScore = scenicScore.max(neighbouringTrees.map(_.indexWhere(_ >= lines(i)(j))).zipWithIndex.map{ 
-        case (indexOfTallerTree, index) => {
-          if (indexOfTallerTree == -1) {
+        case (indexOfTallestTree, index) => {
+          if (indexOfTallestTree == -1) {
             neighbouringTrees(index).length
           } else {
-            indexOfTallerTree + 1
+            indexOfTallestTree + 1
           }
         }
       }.product)
