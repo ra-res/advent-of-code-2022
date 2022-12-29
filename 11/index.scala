@@ -63,9 +63,9 @@ case class Monkey(items: ArrayBuffer[BigInt], operation: List[String], tests: Li
   }
 
   def parseTests(ins: List[String]): List[Int] = {
-    List(ins(0).split(" ").takeRight(1)(0).toInt,
-        ins(1).split(" ").takeRight(1)(0).toInt,
-        ins(2).split(" ").takeRight(1)(0).toInt)
+    List(ins(0).split(" ").takeRight(1)(0).toInt, // prime
+        ins(1).split(" ").takeRight(1)(0).toInt, // case true 
+        ins(2).split(" ").takeRight(1)(0).toInt) // case false
   }
 
   val monkeys: List[Monkey] = lines.map(line => {
